@@ -1,0 +1,49 @@
+﻿<UserControl x:Class="BigReactorSimulator.Views.Selector.TileSelectorControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:tiles="clr-namespace:BigReactorSimulator.Views.Tiles"
+             mc:Ignorable="d" 
+             Height="155" 
+             Width="255"
+             FontFamily="Consolas">
+    <Grid>
+        <Grid.Resources>
+            <tiles:PreviewTileViewModel x:Key="Cryotheum" CurrentType="LiquidCryotheum"/>
+            <tiles:PreviewTileViewModel x:Key="Ender" CurrentType="LiquidEnder"/>
+            <tiles:PreviewTileViewModel x:Key="Redstone" CurrentType="LiquidRedstone"/>
+            <tiles:PreviewTileViewModel x:Key="Diamond" CurrentType="BlockConductorDiamond"/>
+            <tiles:PreviewTileViewModel x:Key="Graphite" CurrentType="BlockConductorGraphite"/>
+            <tiles:PreviewTileViewModel x:Key="Gold" CurrentType="BlockConductorGold"/>
+            <tiles:PreviewTileViewModel x:Key="Air" CurrentType="BlockConductorAir"/>
+            <tiles:PreviewTileViewModel x:Key="ControlRod" CurrentType="BlockReactorControlRod"/>
+        </Grid.Resources>
+        
+        <TextBlock x:Name="SelectedTileNamePreview" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,0,125"/>
+        <Grid Height="125" VerticalAlignment="Bottom">
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource Cryotheum}"/>
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource Ender}"           Margin="65,0,0,0"   />
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource Diamond}"         Margin="130,0,0,0"  />
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource Graphite}"        Margin="195,0,0,0"  />
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource Redstone}"        Margin="0,65,0,0"   />
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource ControlRod}"      Margin="65,65,0,0"  />
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource Gold}"            Margin="130,65,0,0" />
+            <tiles:TileControl HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Height="60" DataContext="{StaticResource Air}"             Margin="195,65,0,0" />
+            <Image x:Name="SelectorRectangle"
+                   HorizontalAlignment="Left" VerticalAlignment="Top" 
+                   Width="60" Height="60"
+                   Source="/BigReactorSimulator;component/Resources/Textures/GuiIcons/SimpleReticle.png"/>
+            <!--
+            <Rectangle x:Name="SelectorRectangle"
+                       Stroke="{DynamicResource ControlBrightPrimaryColourBorderBrush}" 
+                       StrokeThickness="2" 
+                       StrokeDashArray="10"
+                       StrokeDashOffset="3"
+                       StrokeDashCap="Square"
+                       Width="60" Height="60" 
+                       HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            -->
+        </Grid>
+    </Grid>
+</UserControl>

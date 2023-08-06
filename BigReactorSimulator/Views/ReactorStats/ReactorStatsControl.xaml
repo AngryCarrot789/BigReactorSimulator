@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="BigReactorSimulator.Views.ReactorStats.ReactorStatsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BigReactorSimulator.Views.ReactorStats"
+             mc:Ignorable="d" 
+             MinHeight="135" MaxHeight="135" Height="135" d:DesignWidth="255">
+    <UserControl.Resources>
+        <local:RFConverter x:Key="RFConverter"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid VerticalAlignment="Top">
+            <Image Width="30" Height="30" HorizontalAlignment="Left" Source="/BigReactorSimulator;component/Resources/Textures/GuiIcons/Temperature.png"/>
+            <TextBlock Text="{Binding Heat, StringFormat={}{0} C, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="35 0 0 0" VerticalAlignment="Center" FontFamily="Consolas" FontSize="16"/>
+        </Grid>
+        <Grid VerticalAlignment="Top" Margin="0 35 0 0">
+            <Image Width="30" Height="30" HorizontalAlignment="Left" Source="/BigReactorSimulator;component/Resources/Textures/GuiIcons/EnergyOutput.png"/>
+            <TextBlock Text="{Binding RFOutput, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource RFConverter}}" HorizontalAlignment="Stretch" Margin="35 0 0 0" VerticalAlignment="Center" FontFamily="Consolas" FontSize="16"/>
+        </Grid>
+        <Grid VerticalAlignment="Top" Margin="0 70 0 0">
+            <Image Width="30" Height="30" HorizontalAlignment="Left" Source="/BigReactorSimulator;component/Resources/Textures/GuiIcons/FuelUsageRate.png"/>
+            <TextBlock Text="{Binding FuelUsage, StringFormat={}{0} mB/t, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="35 0 0 0" VerticalAlignment="Center" FontFamily="Consolas" FontSize="16"/>
+        </Grid>
+        <Grid VerticalAlignment="Top" Margin="0 105 0 0">
+            <Image Width="30" Height="30" HorizontalAlignment="Left" Source="/BigReactorSimulator;component/Resources/Textures/GuiIcons/Reactivity.png"/>
+            <TextBlock Text="{Binding FuelUsage, StringFormat={}{0} %, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Stretch" Margin="35 0 0 0" VerticalAlignment="Center" FontFamily="Consolas" FontSize="16"/>
+        </Grid>
+    </Grid>
+</UserControl>
